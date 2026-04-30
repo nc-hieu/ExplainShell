@@ -1,0 +1,6 @@
+[submodule "API_Server"]
+	path = API_Server
+	url = https://github.com/nc-hieu/Explainshell-API_Server.git
+[submodule "Web_App"]
+	path = Web_App
+	url = https://github.com/nc-hieu/Explainshell-Web_App.git

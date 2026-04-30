@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: exsh_db
+    restart: always
+    environment:
+      POSTGRES_USER: nchieu
+      POSTGRES_PASSWORD: Hieu12102001
+      POSTGRES_DB: explainshell_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./DB_Init:/docker-entrypoint-initdb.d
+
+  api_server:
+    build: ./API_Server
+    container_name: exsh_api_srv
+    restart: always
+    ports:
+      - "8090:8000"
+    environment:
+      - DATABASE_URL=postgresql://nchieu:Hieu12102001@db:5432/explainshell_db
+    depends_on:
+      - db   # Chờ db khởi động trước
+
+
+  web_app:
+    build: ./Web_App
+    container_name: exsh_web_app
+    restart: always
+    ports:
+      - "8080:5173"  # Mở cổng giao tiếp cho Vite
+    volumes:
+      - ./Web_App:/app   # Đồng bộ code từ máy thật vào container để HMR (Hot Reload) hoạt động
+      - /app/node_modules  # Giữ nguyên node_modules bên trong container, không ghi đè từ ngoài vào
+    environment:
+      - VITE_API_URL=http://localhost:8090/api/v1
+    depends_on:
+      - api_server   # Chờ api_server khởi động trước
+
+volumes:
+  postgres_data: 
