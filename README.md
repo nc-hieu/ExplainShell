@@ -17,7 +17,7 @@ Dự án bao gồm 3 thành phần chính:
 ### 1. Sao chép dự án (Clone)
 Vì dự án này chứa các Submodules, bạn **bắt buộc** phải sử dụng tham số `--recursive` để Git tự động tải code của API_Server và Web_App về:
 ```bash
-git clone --recursive [https://github.com/nc-hieu/ExplainShell.git](https://github.com/nc-hieu/ExplainShell.git)
+git clone --recursive https://github.com/nc-hieu/ExplainShell.git
 cd ExplainShell
 ```
 
