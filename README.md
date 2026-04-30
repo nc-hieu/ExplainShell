@@ -37,13 +37,13 @@ Sau khi lệnh chạy xong:
 - API Documentation: http://localhost:8080/docs
 - Database: Cổng 5432
 
-🔄 Cách cập nhật code mới nhất
+## 🔄 Cách cập nhật code mới nhất
 Khi bạn có thay đổi ở các repo con (API_Server hoặc Web_App), để cập nhật chúng trong dự án tổng này, hãy dùng lệnh:
 ```bash
 git submodule update --remote --merge
 ```
 
-📝 Lưu ý
+## 📝 Lưu ý
 Để nhập dữ liệu mới vào hệ thống:
 - Truy cập vào trang Admin trên giao diện Web.
 - Sử dụng các API endpoint trong tài liệu /docs để kiểm tra dữ liệu thủ công.
