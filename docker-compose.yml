@@ -39,8 +39,11 @@ services:
     restart: always
     ports:
       - "80:80"
+      - "443:443"
     volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf # Map file cấu hình vào Nginx
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf # Map file cấu hình vào Nginx
+      - ./nginx/ssl:/etc/nginx/ssl                        # Chứng chỉ SSL
+      - ./API_Server/uploads:/app/uploads                 # Thư mục ảnh uploads của API_Server
     depends_on:
       - web_app
       - api_server
