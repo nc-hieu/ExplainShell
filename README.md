@@ -25,8 +25,8 @@ Hệ thống được module hóa thành các phần sau:
 Vì dự án này sử dụng Submodules để chứa Backend và Frontend, bạn **bắt buộc** phải gắn cờ `--recursive` khi clone:
 
 ```bash
-git clone --recursive [https://github.com/nc-hieu/explainshell.git](https://github.com/nc-hieu/explainshell.git)
-cd explainshell
+git clone --recursive https://github.com/nc-hieu/ExplainShell.git
+cd ExplainShell
 ```
 Nếu bạn lỡ clone theo cách thông thường, hãy chạy lệnh sau để lấy code các thư mục con
 ```bash
@@ -46,7 +46,7 @@ chmod +x setup-local.sh
 ### Bước 4: Triển khai toàn bộ với Docker
 Khởi chạy Database, Backend, Frontend và Nginx bằng một lệnh duy nhất:
 ```Bash
-docker-compose up --build -d
+docker compose up --build -d
 ```
 (Cờ -d giúp hệ thống chạy ngầm để bạn tiếp tục dùng Terminal)
 
