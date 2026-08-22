@@ -36,6 +36,7 @@ CREATE TABLE programs (
     slug            VARCHAR(100) UNIQUE NOT NULL,
     description     TEXT,
     is_featured     BOOLEAN      DEFAULT FALSE,
+    is_bsd_style    BOOLEAN      DEFAULT FALSE,
     created_at      TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
     updated_at      TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
     fts_program_vector tsvector
@@ -82,7 +83,7 @@ CREATE TABLE examples (
     program_id      INTEGER      NOT NULL REFERENCES programs(id) ON DELETE CASCADE,
     group_id        INTEGER      REFERENCES option_groups(id) ON DELETE SET NULL,
     option_id       INTEGER      REFERENCES options(id) ON DELETE SET NULL,
-    command_line    TEXT         NOT NULL,
+    command_line    TEXT,
     explanation     TEXT,
     is_common       BOOLEAN      DEFAULT TRUE,
     fts_example_vector tsvector
