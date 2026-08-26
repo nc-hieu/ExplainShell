@@ -37,6 +37,7 @@ CREATE TABLE programs (
     description     TEXT,
     is_featured     BOOLEAN      DEFAULT FALSE,
     is_bsd_style    BOOLEAN      DEFAULT FALSE,
+    alias_of_program_id INTEGER  REFERENCES programs(id),
     created_at      TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
     updated_at      TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
     fts_program_vector tsvector
